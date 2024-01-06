@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo_2</title>
+</head>
+<style>
+    #title{
+        text-align: center;
+        color:darkgray;
+    }
+    #techs {
+        display: flex;
+        justify-content: center;
+    }
+    .techslist{
+        text-align: center;
+        display: flex;
+        list-style: none;
+        padding: 0%;
+        margin-right: 18%;
+    }
+    .techslist li {
+        margin-right: 2%;
+        background-color: darkorange;
+        padding: 2%;
+        border-radius: 15%;
+        border-style: solid;
+    }
+    #fe {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-left: 12%;
+        }
+    #be {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-right: 10%;
+    }
+    .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 5px;
+        }
+    .abc {
+        display: flex;
+        justify-content: center;
+    }
+    .ti {
+        margin-right: 30%;
+    }
+</style>
+<body>
+    <div id="title"><h1>Can you identify the front-end and back-end technologies?</h1>
+        <p style="color: black;">Drag and Drop the below terms into the correct beans</p>
+    
+    </div>
+    <div id="techs">
+        <ul class="techslist">
+            <li draggable="true" ondragstart="drag(event)" id="JS">JavaScript</li>
+            <li draggable="true" ondragstart="drag(event)" id="JQ">JQuery</li>
+            <li draggable="true" ondragstart="drag(event)" id="NJ">NodeJS</li>
+            <li draggable="true" ondragstart="drag(event)" id="JA">Java</li>
+            <li draggable="true" ondragstart="drag(event)" id="PY">Python</li>
+            <li draggable="true" ondragstart="drag(event)" id="CS">CSS</li>
+            <li draggable="true" ondragstart="drag(event)" id="DB">Database</li>
+            <li draggable="true" ondragstart="drag(event)" id="AG">Angular</li>
+            <li draggable="true" ondragstart="drag(event)" id="HT">HTML5</li>
+            <li draggable="true" ondragstart="drag(event)" id="LI">Linux</li>
+        </ul>
+    </div>
+    <div class="abc">
+    <h3 class="ti">Frontend Techs</h3>
+    <h3 class="bti">Backend Techs</h3>
+    </div>
+    <div class="container">
+    <div id="fe" ondrop="drop(event)" ondragover="allowDrop(event)">
+    </div>
+    <div id="be" ondrop="drop(event)" ondragover="allowDrop(event)">
+    </div>
+    </div>
+    
+</body>
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+</html>
